@@ -1,0 +1,39 @@
+/* CSS FOR AUTHORIZATION */
+html {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+input {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 15px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: cursive;
+    padding: 0.5%;
+}
+
+button {
+    margin-top: 50px;
+    width: 20%;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: green;
+    color: white;
+    font-size: 1.2em;
+    font-family: cursive;
+    border-radius: 15px;
+    outline: none;
+}
+
+button:hover {
+    transition: .3s;
+    border: 1px solid green;
+    background-color: black;
+}

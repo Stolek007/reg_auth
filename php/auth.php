@@ -31,14 +31,14 @@ if (!empty($errors)) {
     // Exit the code
     exit();
 } else if (empty($errors)) {
-    $password = md5($password); // Hashing password
+    $password = password_hash($password); // Hashing password
     // @
     $em = '@';
     // Checking for @ in a string
     $pos = stripos($login_email, $em);
     if ($pos != 0) {
         // Get result
-        $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$login_email' AND `password` = '$password'");
+        $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$login_email' AND `password` = password_verify($password)");
         // The resulting array
         $user = $result->fetch_assoc();
 

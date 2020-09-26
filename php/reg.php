@@ -49,7 +49,7 @@ if (!empty($errors)) {
         $mysql->close();
         exit();
     } else if (empty($testing->fetch_assoc())) {
-        $password = md5($password); // Hashing password
+        $password = password_hash($password); // Hashing password
         // Registration user
         $res = $mysql->query("INSERT INTO `users` (`name`, `surname`, `login`, `email`, `password`) VALUES ('$name', '$surname', '$login', '$email', '$password')");
         $mysql->close();

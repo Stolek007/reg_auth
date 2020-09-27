@@ -12,11 +12,11 @@
 <body>
 <div class="wrapper">
     <form action="php/auth.php" method="post">
-        <input type="text" name="login-email" id="login-email" placeholder="Логин"><br>
-        <input type="password" name="user_password" id="password" placeholder="Пароль..."
+        <input type="text" name="login-email" id="login-email" placeholder="Логин" class="auth_input"><br>
+        <input type="password" name="user_password" id="password" class="auth_input" placeholder="Пароль..."
                onfocus="this.select(); this.setAttribute('type','password');"
                onclick="this.select(); this.setAttribute('type','text');">
-        <button type="submit">Войти</button>
+        <button type="submit" class="auth_button">Войти</button>
     </form>
 </div>
 

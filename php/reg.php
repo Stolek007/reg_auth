@@ -38,21 +38,20 @@ if (!empty($errors)) {
     for ($i = 0; $i < count($errors); $i++) {
         echo $errors[$i];
     }
-    $mysql->close(); // Closing connection
     exit(); // Exit
 } else if (empty($errors)) {
 
     // Testing if there are any users with same login/email
-    $testing = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' OR `email` = '$email'");
-    if (!empty($testing->fetch_assoc())) {
+    $testing = $mysql->prepare("SELECT * FROM `users` WHERE `login` = '$login' OR `email` = '$email'");
+    $testing->execute();
+    if (!empty($testing->fetchAll())) {
         echo "Пользователь с таким login/email уже существует";
-        $mysql->close();
         exit();
-    } else if (empty($testing->fetch_assoc())) {
+    } else if (empty($testing->fetchAll())) {
         $password = password_hash($password); // Hashing password
         // Registration user
-        $res = $mysql->query("INSERT INTO `users` (`name`, `surname`, `login`, `email`, `password`) VALUES ('$name', '$surname', '$login', '$email', '$password')");
-        $mysql->close();
+        $res = $mysql->prepare("INSERT INTO `users` (`name`, `surname`, `login`, `email`, `password`) VALUES ('$name', '$surname', '$login', '$email', '$password')");
+        $res->execute();
         // Redirecting to Main Page
         header('Location: ../index.php');
         exit(); // If something went wrong -> exit
@@ -60,5 +59,4 @@ if (!empty($errors)) {
 
 }
 
-$mysql->close();
 exit();

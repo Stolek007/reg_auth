@@ -1,10 +1,10 @@
 /* CSS FOR AUTHORIZATION */
-html {
+.wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-input {
+.auth_input {
     width: 100%;
     max-width: 100%;
     margin-top: 15px;
@@ -18,7 +18,7 @@ input {
     padding: 0.5%;
 }
 
-button {
+.auth_button {
     margin-top: 50px;
     width: 20%;
     height: 50px;
@@ -32,7 +32,7 @@ button {
     outline: none;
 }
 
-button:hover {
+.auth_button:hover {
     transition: .3s;
     border: 1px solid green;
     background-color: black;

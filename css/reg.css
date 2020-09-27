@@ -1,10 +1,10 @@
 /* CSS FOR AUTHORIZATION */
-html {
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-input {
+.reg_input {
     width: 100%;
     max-width: 100%;
     margin-top: 15px;
@@ -18,7 +18,7 @@ input {
     padding: 0.5%;
 }
 
-button {
+.reg_button {
     margin-top: 50px;
     width: 20%;
     height: 50px;
@@ -32,7 +32,7 @@ button {
     outline: none;
 }
 
-button:hover {
+.reg_button:hover {
     transition: .3s;
     border: 1px solid green;
     background-color: black;

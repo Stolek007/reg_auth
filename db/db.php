@@ -17,6 +17,10 @@ ENGINE=InnoDB
 
  * */
 
-$mysql = new mysqli('localhost', 'root', 'root', 'testovoe_db'); // Connecting to Database
+/*$mysql = new mysqli('localhost', 'root', 'root', 'testovoe_db'); // Connecting to Database
 
-session_start(); // Starting session
+session_start(); // Starting session*/
+
+$mysql = new \PDO('mysql:host=localhost;dbname=test;charset=UTF8', 'root', 'root');
+
+session_start();

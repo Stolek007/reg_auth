@@ -26,8 +26,6 @@ if (!empty($errors)) {
     for ($i = 0; $i < count($errors); $i++) {
         echo $errors[$i];
     }
-    // Close connection
-    $mysql->close();
     // Exit the code
     exit();
 } else if (empty($errors)) {
@@ -38,9 +36,10 @@ if (!empty($errors)) {
     $pos = stripos($login_email, $em);
     if ($pos != 0) {
         // Get result
-        $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$login_email' AND `password` = password_verify($password)");
+        $result = $mysql->prepare("SELECT * FROM `users` WHERE `email` = '$login_email' AND `password` = password_verify($password)");
+        $result->execute();
         // The resulting array
-        $user = $result->fetch_assoc();
+        $user = $result->fetchAll();
 
         if (!empty($user)) {
             // SESSION DATA (DEFAULT)
@@ -52,16 +51,15 @@ if (!empty($errors)) {
             header('Location: ../profile.php');
         } else if (empty($user)) {
             echo "Пользователь с таким E-mail не зарегестрирован";
-            // Closing connection
-            $mysql->close();
             // Exit the code
             exit();
         }
     } else {
         // Get result
-        $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login_email' AND `password` = '$password'");
+        $result = $mysql->prepare("SELECT * FROM `users` WHERE `login` = '$login_email' AND `password` = '$password'");
+        $result->execute();
         // The resulting array
-        $user = $result->fetch_assoc();
+        $user = $result->fetchAll();
 
         if (!empty($user)) {
             // SESSION DATA (DEFAULT)
@@ -74,8 +72,6 @@ if (!empty($errors)) {
             header('Location: ../profile.php');
         } else if (empty($user)) {
             echo "Пользователь с таким логином не зарегестрирован";
-            // Closing connection
-            $mysql->close();
             // Exit the code
             exit();
         }
@@ -83,5 +79,4 @@ if (!empty($errors)) {
     }
 }
 // In the END -> close connection AND exit the code
-$mysql->close();
 exit();

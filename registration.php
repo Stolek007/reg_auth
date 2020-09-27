@@ -12,12 +12,12 @@
 <body>
 <div class="container">
     <form action="/php/reg.php" method="post">
-        <input type="text" name="user_name" placeholder="Имя..."><br>
-        <input type="text" name="user_surname" placeholder="Фамилия..."><br>
-        <input type="text" name="user_login" placeholder="Логин..."><br>
-        <input type="email" name="user_email" placeholder="E-mail..."><br>
-        <input type="text" name="user_password" placeholder="Password"><br>
-        <button type="submit">Регистрация</button>
+        <input type="text" name="user_name" placeholder="Имя..." class="reg_input"><br>
+        <input type="text" name="user_surname" placeholder="Фамилия..." class="reg_input"><br>
+        <input type="text" name="user_login" placeholder="Логин..." class="reg_input"><br>
+        <input type="email" name="user_email" placeholder="E-mail..." class="reg_input"><br>
+        <input type="text" name="user_password" placeholder="Password" class="reg_input"><br>
+        <button type="submit" class="reg_button">Регистрация</button>
     </form>
 </div>
 </body>
